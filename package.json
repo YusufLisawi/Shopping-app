@@ -1,0 +1,49 @@
+{
+	"name": "react-lap",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@emotion/react": "^11.10.4",
+		"@emotion/style": "^0.8.0",
+		"@emotion/styled": "^11.10.4",
+		"@mui/icons-material": "^5.10.9",
+		"@testing-library/jest-dom": "^5.14.1",
+		"@testing-library/react": "^12.0.0",
+		"@testing-library/user-event": "^13.2.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-scripts": "5.0.0",
+		"web-vitals": "^2.1.0"
+	},
+	"scripts": {
+		"watch:css": "tailwind -i src/assets/tailwind.css -o src/assets/main.css --watch",
+		"build:css": "tailwind src/assets/tailwind.css -o src/assets/main.css",
+		"start": "react-scripts start && npm run watch:css",
+		"build": "react-scripts build && npm run build:css",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.13",
+		"postcss": "^8.4.18",
+		"tailwindcss": "^3.2.1"
+	}
+}
