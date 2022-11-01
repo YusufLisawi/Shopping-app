@@ -9,7 +9,7 @@ export default function Product({
 	handleOnATC,
 }) {
 	return (
-		<div className="p-4 bg-white rounded-xl shadow-lg flex gap-4 flex-col items-center justify-center w-70">
+		<div className="relative p-4 bg-white rounded-xl shadow-lg flex gap-4 flex-col items-center justify-between w-70">
 			<img
 				src={img}
 				alt={title}
