@@ -6,9 +6,18 @@ module.exports = {
 			colors: {},
 			width: {
 				25: "6.5rem",
+				30: "8rem",
 				70: "19rem",
+				120: "30rem",
+			},
+			height: {
+				25: "6.5rem",
+				30: "8rem",
+				70: "19rem",
+				120: "30rem",
 			},
 		},
 	},
 	plugins: [],
 };
+
