@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProductAdded from "./ProductAdded";
 
-export default function ShoppingCart({ products, removeProduct }) {
+export default function ShoppingCart({ products, removeProduct, addQuantity }) {
   return (
     <div>
       <div>
@@ -14,6 +14,7 @@ export default function ShoppingCart({ products, removeProduct }) {
             key={p.id}
             product={p}
             removeProduct={removeProduct}
+            addQuantity={addQuantity}
           />
         ))}
       </div>

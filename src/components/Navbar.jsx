@@ -9,6 +9,7 @@ export default function Navbar({
   didCloseCart,
   openCart,
   removeProduct,
+  addQuantity
 }) {
   return (
     <div className="sticky top-0 z-20 w-full navbar bg-black py-3 px-12 flex items-center justify-between text-white">
@@ -20,6 +21,7 @@ export default function Navbar({
           didCloseCart={didCloseCart}
           openCart={openCart}
           removeProduct={removeProduct}
+          addQuantity={addQuantity}
         />
         {createPortal(
           <Backdrop didCloseCart={didCloseCart} isOpen={openCart}/>,

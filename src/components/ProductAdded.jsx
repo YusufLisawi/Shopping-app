@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 
-export default function ProductAdded({ product, removeProduct }) {
-  // const [quantity, setQuantity] = useState(count);
-
-  // function handleOnChange(value){
-  //   if(value > 0)
-  //     setQuantity(value)
-  // }
+export default function ProductAdded({ product, removeProduct, addQuantity }) {
+    function handleOnChange(value){
+      if (value > 0)
+        addQuantity(product.id, Number(value))
+    }
   return (
     <div className="flex items-end justify-between border-b border-b-2 mb-5 pb-4 whitespace-nowrap">
       <div className="flex gap-3">
@@ -22,6 +20,7 @@ export default function ProductAdded({ product, removeProduct }) {
             className="w-20 p-2 pl-4 rounded-xl border-2"
             max="10"
             value={product.count}
+            onChange={e => handleOnChange(e.target.value)}
           />
           <p
             className="font-medium text-red-500 cursor-pointer hover:underline"

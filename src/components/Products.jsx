@@ -53,7 +53,7 @@ export default function Products({ category, handleOnATC }) {
           <p className="text-center font-medium mb-3">
             {products.length} Products listed
           </p>
-          <div className="container px-20 mx-auto grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8">
+          <div className="container md:px-20 mx-auto grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 s:grid-cols-1 gap-8">
             {products.map((p) => (
               <Product key={p.id} product={p} handleOnATC={handleOnATC} />
             ))}

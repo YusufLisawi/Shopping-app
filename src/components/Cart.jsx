@@ -10,7 +10,8 @@ export default function Cart({
   didOpenCart,
   didCloseCart,
   openCart,
-  removeProduct
+  removeProduct,
+  addQuantity
 }) {
   return (
     <div className="">
@@ -27,13 +28,13 @@ export default function Cart({
         <>
           <div
             className={`fixed z-40 duration-300 ${
-              openCart ? "lg:w-120 md:w-80" : "w-0 opacity-0"
+              openCart ? "lg:w-120 md:w-100 sm:w-90 s:w-full" : "w-0 opacity-0"
             } h-screen shadow-xl top-0 right-0 bg-white text-black p-5`}
           >
             <button onClick={() => didCloseCart()}>
               <CloseIcon />
             </button>
-            <ShoppingCart products={products} removeProduct={removeProduct}/>
+            <ShoppingCart products={products} removeProduct={removeProduct} addQuantity={addQuantity}/>
             <TotalPrice products={products}/>
           </div>
         </>,
