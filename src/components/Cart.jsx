@@ -3,12 +3,14 @@ import { createPortal } from "react-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CloseIcon from "@mui/icons-material/Close";
 import ShoppingCart from "./ShoppingCart";
+import TotalPrice from "./TotalPrice";
 
 export default function Cart({
   products,
   didOpenCart,
   didCloseCart,
   openCart,
+  removeProduct
 }) {
   return (
     <div className="">
@@ -24,14 +26,15 @@ export default function Cart({
       {createPortal(
         <>
           <div
-            className={`absolute z-40 duration-300 ${
-              openCart ? "w-120" : "w-0 opacity-0"
+            className={`fixed z-40 duration-300 ${
+              openCart ? "lg:w-120 md:w-80" : "w-0 opacity-0"
             } h-screen shadow-xl top-0 right-0 bg-white text-black p-5`}
           >
             <button onClick={() => didCloseCart()}>
               <CloseIcon />
             </button>
-            <ShoppingCart products={products} />
+            <ShoppingCart products={products} removeProduct={removeProduct}/>
+            <TotalPrice products={products}/>
           </div>
         </>,
         document.querySelector("#cart")

@@ -3,8 +3,6 @@ import Navbar from "./components/Navbar";
 import Category from "./components/Category";
 import Products from "./components/Products";
 import axios from "axios";
-import { Backdrop } from "./components/Backdrop";
-import { createPortal } from "react-dom";
 
 export default function App() {
   const [categories, setCategories] = useState([]);
@@ -33,24 +31,31 @@ export default function App() {
   }
 
   function handleATC(product) {
-    const existed = shopping.filter((p) => p.id === product.id);
-    const prod = {
-      ...product,
-      count: existed.length ? existed[0].count + 1 : 1,
-    };
+    let p = {...product}
+    let existed = shopping.find((prd) => prd.id === p.id);
+    let products = shopping.filter(prd => prd.id !== p.id);
+    let productToAdd;
+    if (existed)
+      productToAdd = existed
+    else
+      productToAdd = p
 
-    if (!existed.length) {
-      setShopping([prod, ...shopping]);
-    } else {
-      setShopping((sh) =>
-        sh.map((item) => (item.id === prod.id ? prod : item))
-      );
-    }
+    productToAdd.count = productToAdd.count ? productToAdd.count + 1 : 1
+    productToAdd.totalPrice = productToAdd.price * productToAdd.count
+
+    console.log(productToAdd);
+    setShopping([productToAdd, ...products])
+    didOpenCart()
+  }
+  function removeProduct(id){
+    const products = shopping.filter(p => p.id !== id);
+    setShopping(products)
   }
   return (
     <div>
       <Navbar
         shopping={shopping}
+        removeProduct={removeProduct}
         didOpenCart={didOpenCart}
         didCloseCart={didCloseCart}
         openCart={openCart}
